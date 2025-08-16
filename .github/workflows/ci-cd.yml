@@ -45,14 +45,6 @@ jobs:
       env:
         SPRING_PROFILES_ACTIVE: test
 
-    - name: Generate test report
-      uses: dorny/test-reporter@v1
-      if: always()
-      with:
-        name: Test Results
-        path: build/test-results/test/*.xml
-        reporter: java-junit
-
     - name: Upload test results
       uses: actions/upload-artifact@v4
       if: always()
